@@ -1,3 +1,3 @@
-import pp from './Prabal Aryal - Copy.jpg'
+import pp from './Prabal Aryal.png'
 
 export default pp;
