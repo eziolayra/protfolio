@@ -1,5 +1,7 @@
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs'
+import { Hp, pf, tt } from '../image/image'
+import { Link } from 'react-router'
 
 const Project = () => {
 
@@ -8,27 +10,30 @@ const Project = () => {
             id: 1,
             title: "Herbal Landing Page",
             description:
-                "Herbal websites which shows the variety of hearbs and their uses",
-            tags: ["Mobile Design", "UI Design"],
-            image: "/placeholder.svg?height=240&width=320",
+                "A clean and informative landing page showcasing a variety of herbs along with their health benefits.",
+            tags: ["Website Design", "UI Design", "Landing Page"],
+            image: Hp,
+            link: "https://www.figma.com/design/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?node-id=0-1&t=vQ7qOUhfrhvvcghX-1",
         },
         {
             id: 2,
-            title: "Herbal Landing Page",
+            title: "Portfolio",
             description:
-                "Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem",
-            tags: ["Mobile Design", "UI Design"],
-            image: "/placeholder.svg?height=240&width=320",
+                "A modern and minimalistic portfolio design for Prabal Aryal. Emphasizes personal branding, project showcase, and a smooth user experience.",
+            tags: ["Website Design", "UI Design"],
+            image: pf,
+            link: "https://www.figma.com/design/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=2ihbF382PO0prXhx-1",
         },
         {
             id: 3,
-            title: "Herbal Landing Page",
+            title: "Transport Tracker",
             description:
-                "Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem Lorem porem",
-            tags: ["Mobile Design", "UI Design"],
-            image: "/placeholder.svg?height=240&width=320",
+                "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
+            tags: ["Mobile Design", "UX Design"],
+            image: tt,
+            link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
         },
-    ]
+    ];
 
     return (
         <div className="min-h-screen bg-white py-16 px-4">
@@ -49,10 +54,10 @@ const Project = () => {
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+                            className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-sm transition-shadow duration-300"
                         >
                             {/* Project Image */}
-                            <div className="aspect-[4/3] bg-gray-200 overflow-hidden">
+                            <div className="aspect-[4/3] overflow-hidden">
                                 <img
                                     src={project.image || "/placeholder.svg"}
                                     alt={project.title}
@@ -61,11 +66,11 @@ const Project = () => {
                             </div>
 
                             {/* Project Content */}
-                            <div className="p-6">
+                            <div className="p-6 ">
                                 {/* Tags */}
-                                <div className="flex flex-wrap gap-2 mb-4">
+                                <div className="flex  flex-wrap gap-2 mb-4">
                                     {project.tags.map((tag, index) => (
-                                        <span key={index} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                                        <span key={index} className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
                                             {tag}
                                         </span>
                                     ))}
@@ -79,7 +84,7 @@ const Project = () => {
 
                                 {/* View Projects Link */}
                                 <button className="flex items-center gap-2 text-gray-900 font-medium hover:text-teal-600 transition-colors duration-200 group">
-                                    <span>View Projects</span>
+                                    <Link to={project.link} target="_blank">View Projects</Link>
                                     <BsArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                                 </button>
                             </div>
@@ -95,7 +100,7 @@ const Project = () => {
 
                     {/* See All Projects Link */}
                     <button className="inline-flex items-center gap-2 text-gray-900 font-medium hover:text-teal-600 transition-colors duration-200 group">
-                        <span>See All Projects</span>
+                        <Link to="/projects">See All Projects</Link>
                         <BsArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
                 </div>

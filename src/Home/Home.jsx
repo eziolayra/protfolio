@@ -1,9 +1,10 @@
 import React from 'react'
 import { FaFigma } from 'react-icons/fa'
 import { LuLightbulb } from 'react-icons/lu'
-import pp from '../image/image'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { MdFileDownload } from 'react-icons/md'
+import { pp } from '../image/image'
+import { Link } from 'react-router'
 
 const Button = ({ children, variant = 'primary', ...props }) => {
   const baseClasses =
@@ -47,9 +48,9 @@ const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="flex items-center px-5 rounded-lg gap-5 bg-[#0D9488] text-white">
+              <Link to="/projects" className="flex items-center px-5 rounded-lg gap-5 bg-[#0D9488] text-white hover:bg-[#0D9488]/80">
                 View My Projects <FaArrowRightLong />
-              </button>
+              </Link>
               <Button variant="secondary">
                 <MdFileDownload /> Download Resume
               </Button>
