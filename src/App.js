@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import Main from './Global/Main';
-import Nav from './Global/Nav';
-import Aboutme from './About/Aboutme';
-import Footer from './Global/Footer';
+import Main from './Components/Global/Main';
+import Nav from './Components/Global/Nav';
+import Footer from './Components/Global/Footer';
 import { SnackbarProvider } from 'notistack';
-import Project from './Projects/Project';
-import ContactMe from './About/ContactMe';
-import { AllProjects } from './Projects/AllProjects';
+import AllProjects from './Components/Projects/AllProjects';
+import Project from './Components/Projects/Project';
+import Aboutme from './Components/About/Aboutme';
+import ContactMe from './Components/About/ContactMe';
 
 function App() {
   return (

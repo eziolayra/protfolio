@@ -3,7 +3,7 @@ import { FaFigma } from 'react-icons/fa'
 import { LuLightbulb } from 'react-icons/lu'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { MdFileDownload } from 'react-icons/md'
-import { pp } from '../image/image'
+import { pp } from '../../image/image'
 import { Link } from 'react-router'
 
 const Button = ({ children, variant = 'primary', ...props }) => {
@@ -68,7 +68,7 @@ const Home = () => {
 
               {/* Decorative Icons */}
               <div
-                className="absolute -top-4 -right-4 w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center"
+                className="absolute -top-4 -right-4 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center"
                 aria-hidden="true"
               >
                 <FaFigma className="w-6 h-6 text-current" />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs'
-import { Hp, pf, tt } from '../image/image'
 import { Link } from 'react-router'
+import { Hp, pf, tt } from '../../image/image';
 
 const Project = () => {
 
@@ -57,7 +57,7 @@ const Project = () => {
                             className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-sm transition-shadow duration-300"
                         >
                             {/* Project Image */}
-                            <div className="aspect-[4/3] overflow-hidden">
+                            <div className="aspect-[4/3] overflow-hidden border-b">
                                 <img
                                     src={project.image || "/placeholder.svg"}
                                     alt={project.title}

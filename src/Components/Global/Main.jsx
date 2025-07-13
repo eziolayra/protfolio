@@ -1,8 +1,8 @@
 import Home from '../Home/Home'
 import Aboutme from '../About/Aboutme'
-import Project from '../Projects/Project'
 import MyApproach from '../About/MyApproach'
 import ContactMe from '../About/ContactMe'
+import Project from '../Projects/Project'
 
 const Main = () => {
   return (

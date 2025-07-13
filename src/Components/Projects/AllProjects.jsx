@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
-import { Hp, pf, tt } from '../image/image';
+import { Hp, pf, tt } from '../../image/image';
 
 const allProjects = [
     {
@@ -32,7 +32,7 @@ const allProjects = [
     },
 ];
 
-export const AllProjects = () => {
+const AllProjects = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9;
     const totalPages = Math.ceil(allProjects.length / itemsPerPage);
@@ -48,7 +48,7 @@ export const AllProjects = () => {
                             key={project.id}
                             className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-sm transition-shadow duration-300"
                         >
-                            <div className="aspect-[4/3] overflow-hidden">
+                            <div className="aspect-[4/3] overflow-hidden border-b">
                                 <img
                                     src={project.image || "/placeholder.svg"}
                                     alt={project.title}
@@ -119,3 +119,4 @@ export const AllProjects = () => {
     );
 };
 
+export default AllProjects;
