@@ -4,11 +4,12 @@ import MyApproach from '../About/MyApproach'
 import ContactMe from '../About/ContactMe'
 import Project from '../Projects/Project'
 import Nav from './Nav'
+import Footer from './Footer'
 
 const Main = () => {
   return (
     <>
-      <Nav/>
+      <Nav />
       <section id="home">
         <Home />
       </section>
@@ -24,6 +25,7 @@ const Main = () => {
       <section id="contact">
         <ContactMe />
       </section>
+      <Footer />
     </>
   )
 }
