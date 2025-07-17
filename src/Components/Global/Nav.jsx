@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { BiMenu, BiX } from 'react-icons/bi';
-import { Link, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Nav = () => {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
 
     const links = [
-        { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
-        { name: 'Projects', href: '/project' },
-        { name: 'Contact', href: '/contacts' },
+        { name: 'Home', href: 'home', type: 'scroll' },
+        { name: 'About', href: 'about', type: 'scroll' },
+        { name: 'Projects', href: 'project', type: 'scroll' },
+        { name: 'Contact', href: 'contact', type: 'scroll' },
     ];
 
     const handleLinkClick = () => {
@@ -24,26 +25,39 @@ const Nav = () => {
                 {/* Logo */}
                 <div className="flex items-center">
                     <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center">
-                        <Link to="/" className="text-teal-400 font-bold text-lg">PA</Link>
+                        <div onClick={handleLinkClick} className="text-teal-400 font-bold text-lg cursor-pointer">PA</div>
                     </div>
                 </div>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center text-lg space-x-8">
-                    {links.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.href}
-                            onClick={() => handleLinkClick()}
-                            className={`transition-colors duration-300 ${
-                                location.pathname === link.href
+                    {links.map((link) =>
+                        link.type === 'scroll' ? (
+                            <ScrollLink
+                                key={link.name}
+                                to={link.href}
+                                smooth={true}
+                                duration={500}
+                                offset={-80} // adjust for fixed navbar height
+                                className="cursor-pointer text-gray-600 hover:text-teal-600"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {link.name}
+                            </ScrollLink>
+                        ) : (
+                            <RouterLink
+                                key={link.name}
+                                to={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className={`transition-colors duration-300 ${location.pathname === link.href
                                     ? 'text-teal-600 font-semibold'
                                     : 'text-gray-600 hover:text-teal-600'
-                            }`}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
+                                    }`}
+                            >
+                                {link.name}
+                            </RouterLink>
+                        )
+                    )}
                 </nav>
 
                 {/* Hamburger Icon */}
@@ -59,18 +73,17 @@ const Nav = () => {
                 <div className="md:hidden px-6 pb-4">
                     <nav className="flex flex-col space-y-4 text-lg">
                         {links.map((link) => (
-                            <Link
+                            <ScrollLink
                                 key={link.name}
                                 to={link.href}
                                 onClick={() => handleLinkClick()}
-                                className={`transition-colors duration-300 ${
-                                    location.pathname === link.href
-                                        ? 'text-teal-600 font-semibold'
-                                        : 'text-gray-600 hover:text-teal-600'
-                                }`}
+                                className={`transition-colors duration-300 ${location.pathname === link.href
+                                    ? 'text-teal-600 font-semibold'
+                                    : 'text-gray-600 hover:text-teal-600'
+                                    }`}
                             >
                                 {link.name}
-                            </Link>
+                            </ScrollLink>
                         ))}
                     </nav>
                 </div>

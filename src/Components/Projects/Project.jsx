@@ -5,6 +5,7 @@ import { Hp, pf, tt } from '../../image/image';
 
 const Project = () => {
 
+
     const projects = [
         {
             id: 1,
@@ -83,10 +84,16 @@ const Project = () => {
                                 <p className="text-gray-600 text-sm leading-relaxed mb-6">{project.description}</p>
 
                                 {/* View Projects Link */}
-                                <button className="flex items-center gap-2 text-gray-900 font-medium hover:text-teal-600 transition-colors duration-200 group">
-                                    <Link to={project.link} target="_blank">View Projects</Link>
+                                <Link
+                                    to={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-gray-900 font-medium hover:text-teal-600 transition-colors duration-200 group"
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                >
+                                    View Projects
                                     <BsArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     ))}

@@ -6,17 +6,18 @@ import { MdFileDownload } from 'react-icons/md'
 import { pp } from '../../image/image'
 import { Link } from 'react-router'
 
-const Button = ({ children, variant = 'primary', ...props }) => {
+const Button = ({ children, ...props }) => {
   const baseClasses =
     'px-8 py-3 rounded-lg font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
-  const variants = {
-    primary: 'bg-teal-600 hover:bg-teal-700 text-white focus-visible:ring-teal-500',
-    secondary:
-      'border-2 border-gray-400 hover:border-gray-600 text-gray-700 hover:text-gray-900 flex items-center justify-center gap-2 focus-visible:ring-gray-500',
-  }
+  const secondaryClasses =
+    'border-2 border-gray-400 hover:border-gray-600 text-gray-700 hover:text-gray-900 flex items-center justify-center gap-2 focus-visible:ring-gray-500'
 
   return (
-    <button type="button" className={`${baseClasses} ${variants[variant]}`} {...props}>
+    <button
+      type="button"
+      className={`${baseClasses} ${secondaryClasses}`}
+      {...props}
+    >
       {children}
     </button>
   )
@@ -24,7 +25,7 @@ const Button = ({ children, variant = 'primary', ...props }) => {
 
 const Home = () => {
   return (
-    <div className="flex">
+    <div className="flex mt-[80px]">
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-2 gap-[100px] items-center">
           {/* Left Content */}
@@ -47,11 +48,15 @@ const Home = () => {
               learning and growing in the field of UI/UX design.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link to="/projects" className="flex items-center px-5 rounded-lg gap-5 bg-[#0D9488] text-white hover:bg-[#0D9488]/80">
+            {/* Updated button layout */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-3 pt-4 w-full max-w-md">
+              <Link
+                to="/projects"
+                className="flex items-center justify-center px-5 py-3 rounded-lg gap-3 bg-[#0D9488] text-white hover:bg-[#0D9488]/80 w-full sm:w-auto text-center"
+              >
                 View My Projects <FaArrowRightLong />
               </Link>
-              <Button variant="secondary">
+              <Button>
                 <MdFileDownload /> Download Resume
               </Button>
             </div>

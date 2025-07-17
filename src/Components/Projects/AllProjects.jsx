@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
 import { Hp, pf, tt } from '../../image/image';
+import { useNavigate } from 'react-router';
+import { IoChevronBackSharp } from 'react-icons/io5';
 
 const allProjects = [
     {
@@ -30,6 +32,7 @@ const allProjects = [
         image: tt,
         link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
     },
+    
 ];
 
 const AllProjects = () => {
@@ -37,12 +40,18 @@ const AllProjects = () => {
     const itemsPerPage = 9;
     const totalPages = Math.ceil(allProjects.length / itemsPerPage);
     const paginatedProjects = allProjects.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    const navigate = useNavigate();
+
+    const goback = () => {
+        navigate(-1)
+    }
 
     return (
         <div className="min-h-screen bg-white py-16 px-4">
             <div className="max-w-6xl mx-auto">
+                <IoChevronBackSharp className="text-5xl cursor-pointer mb-10 text-teal-600" onClick={goback} />
                 {/* Header Section */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 ">
                     {paginatedProjects.map((project) => (
                         <div
                             key={project.id}
