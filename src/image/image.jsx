@@ -1,6 +1,16 @@
+import cv from './Prabal_AryalCV.pdf'
 import pp from './Prabal Aryal.png'
 import pf from './Protfolio.png'
 import Hp from './Herbal.png'
 import tt from './Transport Tracker.png'
+import srd from './spotify re design.png'
+import et from './Event tracker.png'
+import ldm from './Light and dark.png'
+import ic from './Insta.png'
+import ir from './Train site.png'
+import co from './cotiviti.png'
+import sn from './Sport news.png'
+import lc from './LingsCars.png'
+import es from './Ecommerce.png'
 
-export { pp, pf, Hp, tt };
+export { pp, pf, Hp, tt, cv, srd, et, ldm, ic, ir, co, sn, lc, es };

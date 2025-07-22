@@ -1,16 +1,28 @@
-import React from 'react'
 import { FaFigma } from 'react-icons/fa'
 import { LuLightbulb } from 'react-icons/lu'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { MdFileDownload } from 'react-icons/md'
-import { pp } from '../../image/image'
+import { cv, pp } from '../../image/image'
 import { Link } from 'react-router'
 
-const Button = ({ children, ...props }) => {
+const Button = ({ children, href, download, ...props }) => {
   const baseClasses =
     'px-8 py-3 rounded-lg font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
   const secondaryClasses =
     'border-2 border-gray-400 hover:border-gray-600 text-gray-700 hover:text-gray-900 flex items-center justify-center gap-2 focus-visible:ring-gray-500'
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        download={download}
+        {...props}
+        className="flex items-center justify-center px-5 py-3 rounded-lg gap-2 bg-gray-200 text-black hover:bg-gray-300 w-full sm:w-auto text-center"
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
     <button
@@ -56,7 +68,7 @@ const Home = () => {
               >
                 View My Projects <FaArrowRightLong />
               </Link>
-              <Button>
+              <Button download href={cv}>
                 <MdFileDownload /> Download Resume
               </Button>
             </div>

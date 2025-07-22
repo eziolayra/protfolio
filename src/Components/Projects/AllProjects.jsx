@@ -1,147 +1,9 @@
 import React, { useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
-import { Hp, pf, tt } from '../../image/image';
 import { useNavigate } from 'react-router';
 import { IoChevronBackSharp } from 'react-icons/io5';
+import allProjects from '../../Data/projectdata';
 
-const allProjects = [
-    {
-        id: 1,
-        title: "Herbal Landing Page",
-        description:
-            "A clean and informative landing page showcasing a variety of herbs along with their health benefits.",
-        tags: ["Website Design", "UI Design", "Landing Page"],
-        image: Hp,
-        link: "https://www.figma.com/design/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?node-id=0-1&t=vQ7qOUhfrhvvcghX-1",
-    },
-    {
-        id: 2,
-        title: "Portfolio",
-        description:
-            "A modern and minimalistic portfolio design for Prabal Aryal. Emphasizes personal branding, project showcase, and a smooth user experience.",
-        tags: ["Website Design", "UI Design"],
-        image: pf,
-        link: "https://www.figma.com/design/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 3,
-        title: "Transport Tracker",
-        description:
-            "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
-        tags: ["Mobile Design", "UX Design"],
-        image: tt,
-        link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 1,
-        title: "Herbal Landing Page",
-        description:
-            "A clean and informative landing page showcasing a variety of herbs along with their health benefits.",
-        tags: ["Website Design", "UI Design", "Landing Page"],
-        image: Hp,
-        link: "https://www.figma.com/design/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?node-id=0-1&t=vQ7qOUhfrhvvcghX-1",
-    },
-    {
-        id: 2,
-        title: "Portfolio",
-        description:
-            "A modern and minimalistic portfolio design for Prabal Aryal. Emphasizes personal branding, project showcase, and a smooth user experience.",
-        tags: ["Website Design", "UI Design"],
-        image: pf,
-        link: "https://www.figma.com/design/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 3,
-        title: "Transport Tracker",
-        description:
-            "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
-        tags: ["Mobile Design", "UX Design"],
-        image: tt,
-        link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 1,
-        title: "Herbal Landing Page",
-        description:
-            "A clean and informative landing page showcasing a variety of herbs along with their health benefits.",
-        tags: ["Website Design", "UI Design", "Landing Page"],
-        image: Hp,
-        link: "https://www.figma.com/design/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?node-id=0-1&t=vQ7qOUhfrhvvcghX-1",
-    },
-    {
-        id: 2,
-        title: "Portfolio",
-        description:
-            "A modern and minimalistic portfolio design for Prabal Aryal. Emphasizes personal branding, project showcase, and a smooth user experience.",
-        tags: ["Website Design", "UI Design"],
-        image: pf,
-        link: "https://www.figma.com/design/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 3,
-        title: "Transport Tracker",
-        description:
-            "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
-        tags: ["Mobile Design", "UX Design"],
-        image: tt,
-        link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 1,
-        title: "Herbal Landing Page",
-        description:
-            "A clean and informative landing page showcasing a variety of herbs along with their health benefits.",
-        tags: ["Website Design", "UI Design", "Landing Page"],
-        image: Hp,
-        link: "https://www.figma.com/design/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?node-id=0-1&t=vQ7qOUhfrhvvcghX-1",
-    },
-    {
-        id: 2,
-        title: "Portfolio",
-        description:
-            "A modern and minimalistic portfolio design for Prabal Aryal. Emphasizes personal branding, project showcase, and a smooth user experience.",
-        tags: ["Website Design", "UI Design"],
-        image: pf,
-        link: "https://www.figma.com/design/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 3,
-        title: "Transport Tracker",
-        description:
-            "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
-        tags: ["Mobile Design", "UX Design"],
-        image: tt,
-        link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 1,
-        title: "Herbal Landing Page",
-        description:
-            "A clean and informative landing page showcasing a variety of herbs along with their health benefits.",
-        tags: ["Website Design", "UI Design", "Landing Page"],
-        image: Hp,
-        link: "https://www.figma.com/design/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?node-id=0-1&t=vQ7qOUhfrhvvcghX-1",
-    },
-    {
-        id: 2,
-        title: "Portfolio",
-        description:
-            "A modern and minimalistic portfolio design for Prabal Aryal. Emphasizes personal branding, project showcase, and a smooth user experience.",
-        tags: ["Website Design", "UI Design"],
-        image: pf,
-        link: "https://www.figma.com/design/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=2ihbF382PO0prXhx-1",
-    },
-    {
-        id: 3,
-        title: "Transport Tracker",
-        description:
-            "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
-        tags: ["Mobile Design", "UX Design"],
-        image: tt,
-        link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
-    },
-    
-];
 
 const AllProjects = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -155,7 +17,7 @@ const AllProjects = () => {
     }
 
     return (
-        <div className="min-h-screen bg-white py-16 px-4">
+        <div className="min-h-screen bg-gray-100 py-16 px-4">
             <div className="max-w-6xl mx-auto">
                 <IoChevronBackSharp className="text-5xl cursor-pointer mb-10 text-teal-600" onClick={goback} />
                 {/* Header Section */}

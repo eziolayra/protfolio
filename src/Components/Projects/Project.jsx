@@ -14,7 +14,7 @@ const Project = () => {
                 "A clean and informative landing page showcasing a variety of herbs along with their health benefits.",
             tags: ["Website Design", "UI Design", "Landing Page"],
             image: Hp,
-            link: "https://www.figma.com/design/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?node-id=0-1&t=vQ7qOUhfrhvvcghX-1",
+            link: "https://www.figma.com/proto/PFQQQgFF4Gm0Bipgbjq3GN/Herbal?t=ZskzR6pzV9b6ko29-1",
         },
         {
             id: 2,
@@ -23,7 +23,7 @@ const Project = () => {
                 "A modern and minimalistic portfolio design for Prabal Aryal. Emphasizes personal branding, project showcase, and a smooth user experience.",
             tags: ["Website Design", "UI Design"],
             image: pf,
-            link: "https://www.figma.com/design/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=2ihbF382PO0prXhx-1",
+            link: "https://www.figma.com/proto/dpKRGrfj4Ru97M4xPbRHRv/Protfolio?t=ZskzR6pzV9b6ko29-1",
         },
         {
             id: 3,
@@ -32,7 +32,7 @@ const Project = () => {
                 "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
             tags: ["Mobile Design", "UX Design"],
             image: tt,
-            link: "https://www.figma.com/design/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?node-id=0-1&t=2ihbF382PO0prXhx-1",
+            link: "https://www.figma.com/proto/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?t=ZskzR6pzV9b6ko29-1",
         },
     ];
 
