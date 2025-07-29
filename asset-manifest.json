@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c3e81bf7.css",
+    "main.js": "/static/js/main.ac96481a.js",
+    "static/media/Train site.png": "/static/media/Train site.6e9ba110a1649b840c4d.png",
+    "static/media/Herbal.png": "/static/media/Herbal.5c1f4eea2842c0f2a244.png",
+    "static/media/Protfolio.png": "/static/media/Protfolio.ee22151968babb28a1fb.png",
+    "static/media/LingsCars.png": "/static/media/LingsCars.907a7a8aa24a8a7a4c7b.png",
+    "static/media/Prabal Aryal.png": "/static/media/Prabal Aryal.bf96e01858d1376ffea5.png",
+    "static/media/Insta.png": "/static/media/Insta.013fed24111d5f1c7d3d.png",
+    "static/media/Transport Tracker.png": "/static/media/Transport Tracker.259e9c5cae96cbc51335.png",
+    "static/media/Sport news.png": "/static/media/Sport news.1ca8d1ee8d10ef067c0a.png",
+    "static/media/Prabal_AryalCV.pdf": "/static/media/Prabal_AryalCV.c7936fc4c48895f50199.pdf",
+    "static/media/spotify re design.png": "/static/media/spotify re design.368f8d2ac9694b5fd75e.png",
+    "static/media/Ecommerce.png": "/static/media/Ecommerce.42e652a62cd350dab1f5.png",
+    "static/media/cotiviti.png": "/static/media/cotiviti.97f13ad3838236302b7a.png",
+    "static/media/Event tracker.png": "/static/media/Event tracker.85ec26f19a5373668e04.png",
+    "static/media/Light and dark.png": "/static/media/Light and dark.fc1ada61207394bd0dba.png",
+    "index.html": "/index.html",
+    "main.c3e81bf7.css.map": "/static/css/main.c3e81bf7.css.map",
+    "main.ac96481a.js.map": "/static/js/main.ac96481a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3e81bf7.css",
+    "static/js/main.ac96481a.js"
+  ]
+}
