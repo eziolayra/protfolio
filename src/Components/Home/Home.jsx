@@ -17,7 +17,7 @@ const Button = ({ children, href, download, ...props }) => {
         href={href}
         download={download}
         {...props}
-        className="flex items-center justify-center px-5 py-3 rounded-lg gap-2 border-2 hover:bg-gray-300 w-full sm:w-auto text-center"
+        className="flex items-center justify-center px-5 py-3 rounded-lg gap-2 border-2 hover:bg-gray-400 w-full sm:w-auto text-center"
       >
         {children}
       </a>
