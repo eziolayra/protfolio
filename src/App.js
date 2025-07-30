@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import Main from './Components/Global/Main';
 import { SnackbarProvider } from 'notistack';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './Components/Global/Main';
 import AllProjects from './Components/Projects/AllProjects';
 
 function App() {

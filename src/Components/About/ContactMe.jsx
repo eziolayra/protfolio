@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { FaLinkedinIn, FaPhoneAlt } from 'react-icons/fa'
 import { IoIosMail } from 'react-icons/io'
 import emailjs from '@emailjs/browser';
@@ -9,15 +9,17 @@ const contactItems = [
         id: 'phone',
         label: 'Phone Number',
         value: '9843810916',
+        href: 'tel:9843810916',
         icon: FaPhoneAlt,
-        isLink: false,
+        isLink: true,
     },
     {
         id: 'email',
         label: 'Email',
         value: 'prabal.aryal.ez@gmail.com',
+        href: 'mailto:prabal.aryal.ez@gmail.com',
         icon: IoIosMail,
-        isLink: false,
+        isLink: true,
     },
     {
         id: 'linkedin',
@@ -31,11 +33,46 @@ const contactItems = [
 
 const ContactMe = () => {
 
+    const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+
     const form = useRef();
     const { Notice } = NoticeBar();
 
+    const validateForm = (formData) => {
+        const newErrors = {};
+
+        if (!formData.get('user_name').trim()) {
+            newErrors.user_name = 'Name is required';
+        }
+
+        const email = formData.get('user_email').trim();
+        if (!email) {
+            newErrors.user_email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            newErrors.user_email = 'Email is invalid';
+        }
+
+        if (!formData.get('message').trim()) {
+            newErrors.message = 'Message is required';
+        }
+
+        return newErrors;
+    };
+
     const sendEmail = (e) => {
         e.preventDefault();
+
+        const formData = new FormData(form.current);
+        const formErrors = validateForm(formData);
+
+        if (Object.keys(formErrors).length > 0) {
+            setErrors(formErrors);
+            return;
+        }
+
+        setErrors({});
+        setIsLoading(true);
 
         emailjs
             .sendForm('service_lzycdjo', 'template_ymi06nb', form.current, {
@@ -51,7 +88,10 @@ const ContactMe = () => {
                     Notice('Failed to send message. Please try again.', 'error');
                     console.log('FAILED...', error.text);
                 },
-            );
+            )
+            .finally(() => {
+                setIsLoading(false);
+            });
     };
 
     return (
@@ -72,7 +112,7 @@ const ContactMe = () => {
                         <h2 className="text-2xl font-bold mb-8">Get in Touch</h2>
 
                         <div className="space-y-6">
-                            {contactItems.map(({ id, label, value, icon: Icon, isLink, displayText }) => (
+                            {contactItems.map(({ id, label, value, icon: Icon, isLink, displayText, href }) => (
                                 <div key={id} className="flex items-center space-x-4">
                                     <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center">
                                         <Icon className="w-6 h-6 text-white" />
@@ -81,12 +121,12 @@ const ContactMe = () => {
                                         <p className="text-teal-100 text-sm">{label}</p>
                                         {isLink ? (
                                             <a
-                                                href={value}
+                                                href={href || value}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-white font-medium"
                                             >
-                                                {displayText}
+                                                {displayText || value}
                                             </a>
                                         ) : (
                                             <p className="text-white font-medium">{value}</p>
@@ -110,6 +150,7 @@ const ContactMe = () => {
                                     placeholder="Your Name"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                                 />
+                                {errors.user_name && <p className="text-red-500 text-sm mt-1">{errors.user_name}</p>}
                             </div>
 
                             {/* Email Field */}
@@ -122,6 +163,7 @@ const ContactMe = () => {
                                     placeholder="Your Email"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                                 />
+                                {errors.user_email && <p className="text-red-500 text-sm mt-1">{errors.user_email}</p>}
                             </div>
 
                             {/* Message Field */}
@@ -133,7 +175,8 @@ const ContactMe = () => {
                                     name='message'
                                     placeholder="I'd like to talk about..."
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
-                                ></textarea>
+                                />
+                                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                             </div>
 
                             {/* Submit Button */}
@@ -141,8 +184,9 @@ const ContactMe = () => {
                                 type="submit"
                                 value="Send"
                                 className="w-full bg-teal-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-teal-700 transition-colors duration-200"
+                                disabled={isLoading}
                             >
-                                Send Message
+                                {isLoading ? 'Sending...' : 'Send Message'}
                             </button>
                         </form>
                     </div>

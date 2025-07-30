@@ -1,33 +1,5 @@
 import React from 'react'
-import { BiBookOpen, BiLaptop } from 'react-icons/bi'
-import { GiLightBulb } from 'react-icons/gi'
-
-const features = [
-    {
-        id: 1,
-        title: "Always Learning",
-        description: "Constantly improving my skills through courses, tutorials, and hands-on projects.",
-        Icon: BiBookOpen,
-        iconBg: "bg-teal-100",
-        iconColor: "text-teal-600"
-    },
-    {
-        id: 2,
-        title: "Technical Background",
-        description: "Basic understanding of HTML/CSS and React to better collaborate with development teams.",
-        Icon: BiLaptop,
-        iconBg: "bg-blue-100",
-        iconColor: "text-blue-600"
-    },
-    {
-        id: 3,
-        title: "Creative Problem Solver",
-        description: "Approaching design challenges with creativity and a user-centered mindset.",
-        Icon: GiLightBulb,
-        iconBg: "bg-yellow-100",
-        iconColor: "text-yellow-600"
-    }
-]
+import { educationList, features, skillsList } from '../../Data/AboutData'
 
 const Aboutme = () => {
     return (
@@ -61,58 +33,35 @@ const Aboutme = () => {
                     ))}
                 </div>
 
-                {/* Skills and Education Section */}
+                {/* Skills and Education  */}
+
                 <div className="grid lg:grid-cols-2 gap-12">
-                    {/* Skills Section */}
+                    {/* Skills  */}
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900 mb-8">Skills</h2>
                         <div className="space-y-6">
-                            <div className="flex items-center justify-between">
-                                <span className="text-gray-700 font-medium">UI Design</span>
-                                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
-                                    Intermediate
-                                </span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <span className="text-gray-700 font-medium">Wireframing</span>
-                                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
-                                    Intermediate
-                                </span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <span className="text-gray-700 font-medium">Prototyping</span>
-                                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <span className="text-gray-700 font-medium">User Research</span>
-                                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <span className="text-gray-700 font-medium">Visual Design</span>
-                                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
-                                    Intermediate
-                                </span>
-                            </div>
+                            {skillsList.map(({ name, level }, index) => (
+                                <div key={index} className="flex items-center justify-between">
+                                    <span className="text-gray-700 font-medium">{name}</span>
+                                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                                        {level}
+                                    </span>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    {/* Education Section */}
+                    {/* Education  */}
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900 mb-8">Education & Courses</h2>
                         <div className="space-y-8">
-                            {/* Bachelor's Degree */}
-                            <div className="border-l-4 border-teal-500 pl-6">
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">Bachelor in Science CSIT</h3>
-                                <p className="text-gray-600 mb-2">Tribhuvan University • 2019 - 2023</p>
-                                <p className="text-gray-500 italic">Focused on Programming and Designing</p>
-                            </div>
-
-                            {/* UI/UX Course */}
-                            <div className="border-l-4 border-teal-500 pl-6">
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">UI/UX Course</h3>
-                                <p className="text-gray-600 mb-2">Broadway Infos • 2025</p>
-                                <p className="text-gray-500 italic">2.5 months training</p>
-                            </div>
+                            {educationList.map(({ title, institution, period, note }, index) => (
+                                <div key={index} className="border-l-4 border-teal-500 pl-6">
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+                                    <p className="text-gray-600 mb-2">{institution} • {period}</p>
+                                    <p className="text-gray-500 italic">{note}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
