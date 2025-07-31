@@ -12,5 +12,6 @@ import co from './cotiviti.png'
 import sn from './Sport news.png'
 import lc from './LingsCars.png'
 import es from './Ecommerce.png'
+import bb from './bb.png'
 
-export { pp, pf, Hp, tt, cv, srd, et, ldm, ic, ir, co, sn, lc, es };
+export { pp, pf, Hp, tt, cv, srd, et, ldm, ic, ir, co, sn, lc, es, bb };

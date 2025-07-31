@@ -1,4 +1,4 @@
-import { co, es, et, Hp, ic, ir, lc, ldm, pf, sn, srd, tt } from "../image/image";
+import { co, es, et, Hp, ic, ir, lc, ldm, pf, sn, srd, tt, bb } from "../image/image";
 
 const allProjects = [
     {
@@ -24,9 +24,18 @@ const allProjects = [
         title: "Transport Tracker",
         description:
             "A user-friendly mobile app design for tracking public transportation in real time. Focuses on route clarity and live updates.",
-        tags: ["Mobile Design", "UX Design"],
+        tags: ["Mobile Design", "UX Design", "In Progress"],
         image: tt,
         link: "https://www.figma.com/proto/Q1HzJRugEbyhs5MWXhWMWR/Transportation-tracker?t=ZskzR6pzV9b6ko29-1",
+    },
+    {
+        id: 13,
+        title: "BataiBato",
+        description:
+            "A modern and intuitive mobile app design that helps users effortlessly search and book flights and hotels. The interface focuses on smooth navigation, smart filters, and a seamless booking flow to enhance the overall travel planning experience.",
+        tags: ["Mobile Design", "UX Design", "In Progress"],
+        image: bb,
+        link: "https://www.figma.com/proto/rRjbTRgInFlnXwXmGfO9jz/Travel-and-Booking?node-id=0-1&t=fjJO6vvXdhmjwYgi-1",
     },
     {
         id: 4,
@@ -109,6 +118,7 @@ const allProjects = [
         image: es,
         link: "https://www.figma.com/proto/wvNbJjB9onl4cCFzNBTE1G/Home-Use?t=AEYExr52SwaeZh97-1",
     },
+    
 
 ];
 
